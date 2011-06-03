@@ -1,7 +1,8 @@
 CrdTalks::Application.routes.draw do
-  get "talks/index"
 
-  get "talks/show"
+  resources :talks, :only => [ :index, :show ]
+  
+  root :to => 'talks#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
