@@ -34,7 +34,8 @@ task :talks => :environment do
     
     Talk.create( 
       :title => talk.title, 
-      :goal => talk.goal
+      :goal  => talk.goal,
+      :html  => talk.html
     ).tap do |t|
       puts "#{t.title} created."
     end
