@@ -1,4 +1,8 @@
 CrdTalks::Application.routes.draw do
+  get "talks/index"
+
+  get "talks/show"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
