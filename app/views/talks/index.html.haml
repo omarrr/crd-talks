@@ -1,0 +1,6 @@
+%h1 All talks
+%ul
+  - list_of @talks do |talk|
+    = link_to talk_path( talk ) do
+      %h2= talk.title
+      %p= talk.goal
