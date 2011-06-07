@@ -205,3 +205,22 @@ body.talks .talk h1, body.talks .talk h2 {
 body.talks .talk li, body.talks .talk p {
   margin: 10px 0;
 }
+/* line 11, ../../app/stylesheets/default/_talks.sass */
+body.talks .slide {
+  font-size: 30px;
+  line-height: 35px;
+}
+/* line 16, ../../app/stylesheets/default/_talks.sass */
+body.talks .slide h1 {
+  font-size: 70px;
+  line-height: 80px;
+}
+/* line 19, ../../app/stylesheets/default/_talks.sass */
+body.talks .slide h2 {
+  font-size: 60px;
+  line-height: 65px;
+}
+/* line 23, ../../app/stylesheets/default/_talks.sass */
+body.talks .slide li, body.talks .slide p {
+  margin: 20px 0;
+}
