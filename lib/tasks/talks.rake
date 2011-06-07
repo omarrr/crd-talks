@@ -32,16 +32,22 @@ end
 desc "Seed DB with talks"
 task :talks => :environment do
   
-  Talk.destroy_all
+  # Talk.destroy_all
   
   talkfiles.sort.each do |talk|
     
-    Talk.create( 
-      :title => talk.title, 
-      :goal  => talk.goal,
-      :html  => talk.html
-    ).tap do |t|
-      puts "#{t.title} created."
+    if model = Talk.find_by_title( talk.title )
+      puts "#{model.title} updated." if model.update_attributes( talk )
+    else
+          
+      Talk.create( 
+        :title => talk.title, 
+        :goal  => talk.goal,
+        :html  => talk.html
+      ).tap do |t|
+        puts "#{t.title} created."
+      end
+      
     end
     
   end
