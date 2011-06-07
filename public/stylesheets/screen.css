@@ -197,6 +197,26 @@ pre, code {
   text-shadow: #637080 0 1px 1px;
 }
 
+/* line 4, ../../app/stylesheets/default/_buttons.sass */
+.button {
+  padding: 5px 20px;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(50%, #ffffff), color-stop(52%, #ededed));
+  background: -webkit-linear-gradient(#ffffff 50%, #ededed 52%);
+  background: -moz-linear-gradient(#ffffff 50%, #ededed 52%);
+  background: -o-linear-gradient(#ffffff 50%, #ededed 52%);
+  background: linear-gradient(#ffffff 50%, #ededed 52%);
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -o-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -khtml-border-radius: 15px;
+  border-radius: 15px;
+  -moz-box-shadow: #0f1c29 0 0 4px;
+  -webkit-box-shadow: #0f1c29 0 0 4px;
+  -o-box-shadow: #0f1c29 0 0 4px;
+  box-shadow: #0f1c29 0 0 4px;
+}
+
 /* line 5, ../../app/stylesheets/default/_talks.sass */
 body.talks .talk h1, body.talks .talk h2 {
   margin: 20px 0;

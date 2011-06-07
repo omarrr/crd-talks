@@ -12,6 +12,9 @@
     #header
       .wrapper
         = link_to "AKQA CRD Talks", talks_path
+        - if defined?( @talk )
+          \>
+          = link_to @talk.title, talk_path( @talk )
     #content
       .wrapper
         = yield
