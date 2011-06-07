@@ -1,6 +1,9 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 
+/**
+ * slideshow verbs
+ */
 ( function( $ )
 {
   $.verbs.separates = function( )
@@ -63,24 +66,39 @@
   
 } )( jQuery );
 
+/**
+ * slideshow plugin
+ */
+( function( $ )
+{
+  $.fn.slideshow = function( )
+  {
+    return $( this ).each( function( )
+    {
+      var key = {
+        left  : function( event ){ return event.which === 37; },
+        right : function( event ){ return event.which === 39; }
+      };
+
+      var not = {
+        first : function( event ){ return false === $( '.slide.active' ).is( '.slide:first-child' ); },
+        last  : function( event ){ return false === $( '.slide.active' ).is( '.slide:last-child' ); }
+      };
+
+      $( this ).on( 'ready', document ).separates( );
+      $( this ).on( 'ready', document ).hides( '.slide' );
+      $( this ).on( 'ready', document ).shows( '.slide:first-child' );
+      $( this ).on( 'ready', document ).activates( '.slide:first-child' );
+      $( this ).on( 'keydown', document ).advances( '.slide.active' ).when( key.right ).and( not.last );
+      $( this ).on( 'keydown', document ).rewinds( '.slide.active' ).when( key.left ).and( not.first );
+      
+    } );
+  };
+} )( jQuery );
+
+/**
+ * application-wide scripts
+ */
 $( function( $ )
 {
-  var key = {
-    left  : function( event ){ return event.which === 37; },
-    right : function( event ){ return event.which === 39; }
-  };
-  
-  var not = {
-    first : function( event ){ return false === $( '.slide.active' ).is( '.slide:first-child' ); },
-    last  : function( event ){ return false === $( '.slide.active' ).is( '.slide:last-child' ); }
-  };
-  
-  $( '.talk' ).on( 'ready', document ).separates( );
-  $( '.talk' ).on( 'ready', document ).hides( '.slide' );
-  $( '.talk' ).on( 'ready', document ).shows( '.slide:first-child' );
-  $( '.talk' ).on( 'ready', document ).activates( '.slide:first-child' );
-  
-  $( '.talk' ).on( 'keydown', document ).advances( '.slide.active' ).when( key.right ).and( not.last );
-  $( '.talk' ).on( 'keydown', document ).rewinds( '.slide.active' ).when( key.left ).and( not.first );
-
 } );
