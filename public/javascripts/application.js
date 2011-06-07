@@ -89,6 +89,7 @@
       $( this ).on( 'ready', document ).hides( '.slide' );
       $( this ).on( 'ready', document ).shows( '.slide:first-child' );
       $( this ).on( 'ready', document ).activates( '.slide:first-child' );
+      
       $( this ).on( 'keydown', document ).advances( '.slide.active' ).when( key.right ).and( not.last );
       $( this ).on( 'keydown', document ).rewinds( '.slide.active' ).when( key.left ).and( not.first );
       

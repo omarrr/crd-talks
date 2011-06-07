@@ -1,0 +1,58 @@
+
+
+body
+  // font-family: georgia, serif
+  font-family: 'Lucida Grande', Tahoma, sans-serif
+  font-size: 16px
+
+h1, h2, h3, h4, h5, h6
+  font-family: Georgia, Times, serif
+
+h1
+  font-size: 25px
+h2
+  font-size: 22px
+h3
+  font-size: 20px
+h4
+  font-size: 18px
+h5
+  font-size: 16px
+h6
+  font-size: 16px
+
+a
+  @include unstyled-link
+
+#header, #content
+  padding: 20px
+
+
+$white: #FFF
+$light-blue: #ECF3F9
+$medium-blue: #637080
+$darker-blue: #3E6EB1
+$dark-blue: #0F1C29
+
+body
+  background-color: $light-blue
+  color: $medium-blue
+  
+a
+  color: $darker-blue
+  &:hover
+    color: lighten( $darker-blue, 20% )
+
+h1, h2, h3, h4, h5, h6
+  color: $dark-blue
+
+#header
+  background-color: $white
+  border-bottom: 1px solid $darker-blue
+  
+
+.wrapper
+  width: 900px
+  margin: auto
+
+// end
