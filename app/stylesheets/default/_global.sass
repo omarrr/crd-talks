@@ -1,32 +1,39 @@
 
+$serif: Georgia, Times, serif
+$sans: 'Lucida Grande', Tahoma, sans-serif
 
 body
-  // font-family: georgia, serif
-  font-family: 'Lucida Grande', Tahoma, sans-serif
+  font-family: $sans
   font-size: 16px
 
 h1, h2, h3, h4, h5, h6
-  font-family: Georgia, Times, serif
+  font-family: $serif
 
 h1
   font-size: 25px
+  line-height: 30px
 h2
   font-size: 22px
+  line-height: 26px
 h3
   font-size: 20px
+  line-height: 23px
 h4
   font-size: 18px
+  line-height: 20px
 h5
   font-size: 16px
+  line-height: 18px
 h6
   font-size: 16px
-
-a
-  @include unstyled-link
+  line-height: 18px
 
 #header, #content
   padding: 20px
 
+.wrapper
+  width: 900px
+  margin: auto
 
 $white: #FFF
 $light-blue: #ECF3F9
@@ -37,22 +44,23 @@ $dark-blue: #0F1C29
 body
   background-color: $light-blue
   color: $medium-blue
+  @include text-shadow( $white 0 1px 1px )
   
 a
-  color: $darker-blue
-  &:hover
-    color: lighten( $darker-blue, 20% )
+  @include unstyled-link
+  @include link-colors( $darker-blue, lighten( $darker-blue, 20% ) )
 
 h1, h2, h3, h4, h5, h6
   color: $dark-blue
 
 #header
   background-color: $white
-  border-bottom: 1px solid $darker-blue
-  
+  border-bottom: 1px solid $medium-blue
+  @include box-shadow( $medium-blue 0 -3px 10px 0 )
 
-.wrapper
-  width: 900px
-  margin: auto
+.talks
+  li
+    margin-top: 20px
+    list-style: disc
 
 // end

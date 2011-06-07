@@ -68,91 +68,104 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
-/* line 3, ../../app/stylesheets/default/_global.sass */
+/* line 5, ../../app/stylesheets/default/_global.sass */
 body {
   font-family: "Lucida Grande", Tahoma, sans-serif;
   font-size: 16px;
 }
 
-/* line 8, ../../app/stylesheets/default/_global.sass */
+/* line 9, ../../app/stylesheets/default/_global.sass */
 h1, h2, h3, h4, h5, h6 {
   font-family: Georgia, Times, serif;
 }
 
-/* line 11, ../../app/stylesheets/default/_global.sass */
+/* line 12, ../../app/stylesheets/default/_global.sass */
 h1 {
   font-size: 25px;
-}
-
-/* line 13, ../../app/stylesheets/default/_global.sass */
-h2 {
-  font-size: 22px;
+  line-height: 30px;
 }
 
 /* line 15, ../../app/stylesheets/default/_global.sass */
+h2 {
+  font-size: 22px;
+  line-height: 26px;
+}
+
+/* line 18, ../../app/stylesheets/default/_global.sass */
 h3 {
   font-size: 20px;
-}
-
-/* line 17, ../../app/stylesheets/default/_global.sass */
-h4 {
-  font-size: 18px;
-}
-
-/* line 19, ../../app/stylesheets/default/_global.sass */
-h5 {
-  font-size: 16px;
+  line-height: 23px;
 }
 
 /* line 21, ../../app/stylesheets/default/_global.sass */
-h6 {
-  font-size: 16px;
+h4 {
+  font-size: 18px;
+  line-height: 20px;
 }
 
 /* line 24, ../../app/stylesheets/default/_global.sass */
+h5 {
+  font-size: 16px;
+  line-height: 18px;
+}
+
+/* line 27, ../../app/stylesheets/default/_global.sass */
+h6 {
+  font-size: 16px;
+  line-height: 18px;
+}
+
+/* line 31, ../../app/stylesheets/default/_global.sass */
+#header, #content {
+  padding: 20px;
+}
+
+/* line 34, ../../app/stylesheets/default/_global.sass */
+.wrapper {
+  width: 900px;
+  margin: auto;
+}
+
+/* line 44, ../../app/stylesheets/default/_global.sass */
+body {
+  background-color: #ecf3f9;
+  color: #637080;
+  text-shadow: white 0 1px 1px;
+}
+
+/* line 49, ../../app/stylesheets/default/_global.sass */
 a {
   color: inherit;
   text-decoration: inherit;
   cursor: inherit;
+  color: #3e6eb1;
 }
 /* line 6, ../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.11.1/frameworks/compass/stylesheets/compass/typography/links/_unstyled-link.scss */
 a:active, a:focus {
   outline: none;
 }
-
-/* line 27, ../../app/stylesheets/default/_global.sass */
-#header, #content {
-  padding: 20px;
-}
-
-/* line 37, ../../app/stylesheets/default/_global.sass */
-body {
-  background-color: #ecf3f9;
-  color: #637080;
-}
-
-/* line 41, ../../app/stylesheets/default/_global.sass */
-a {
-  color: #3e6eb1;
-}
-/* line 43, ../../app/stylesheets/default/_global.sass */
+/* line 24, ../../../../.rvm/gems/ree-1.8.7-2010.02/gems/compass-0.11.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 a:hover {
   color: #82a4d3;
 }
 
-/* line 46, ../../app/stylesheets/default/_global.sass */
+/* line 53, ../../app/stylesheets/default/_global.sass */
 h1, h2, h3, h4, h5, h6 {
   color: #0f1c29;
 }
 
-/* line 49, ../../app/stylesheets/default/_global.sass */
+/* line 56, ../../app/stylesheets/default/_global.sass */
 #header {
   background-color: white;
-  border-bottom: 1px solid #3e6eb1;
+  border-bottom: 1px solid #637080;
+  -moz-box-shadow: #637080 0 -3px 10px 0;
+  -webkit-box-shadow: #637080 0 -3px 10px 0;
+  -o-box-shadow: #637080 0 -3px 10px 0;
+  box-shadow: #637080 0 -3px 10px 0;
 }
 
-/* line 54, ../../app/stylesheets/default/_global.sass */
-.wrapper {
-  width: 900px;
-  margin: auto;
+/* line 62, ../../app/stylesheets/default/_global.sass */
+.talks li {
+  margin-top: 20px;
+  list-style: disc;
 }
