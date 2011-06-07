@@ -85,14 +85,15 @@
         last  : function( event ){ return false === $( '.slide.active' ).is( '.slide:last-child' ); }
       };
 
-      $( this ).on( 'ready', document ).separates( );
-      $( this ).on( 'ready', document ).hides( '.slide' );
-      $( this ).on( 'ready', document ).shows( '.slide:first-child' );
-      $( this ).on( 'ready', document ).activates( '.slide:first-child' );
+      $( this ).on( 'slideshow.start' ).separates( );
+      $( this ).on( 'slideshow.start' ).hides( '.slide' );
+      $( this ).on( 'slideshow.start' ).shows( '.slide:first-child' );
+      $( this ).on( 'slideshow.start' ).activates( '.slide:first-child' );
       
       $( this ).on( 'keydown', document ).advances( '.slide.active' ).when( key.right ).and( not.last );
       $( this ).on( 'keydown', document ).rewinds( '.slide.active' ).when( key.left ).and( not.first );
       
+      $( this ).trigger( 'slideshow.start' );
     } );
   };
 } )( jQuery );
@@ -102,4 +103,10 @@
  */
 $( function( $ )
 {
+  window.slideshowify = function( )
+  {
+    $( 'body' ).animate( { 'background-color' : '#FFF' } );
+    $( '.talk' ).slideshow( );
+    
+  };
 } );
