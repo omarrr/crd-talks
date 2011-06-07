@@ -1,6 +1,6 @@
-%h1 All talks
-%ul
+%p Below, you can find a list of presentations and tutorials.
+%ul.talks
   = list_of @talks do |talk|
     = link_to talk_path( talk ) do
-      %h2= talk.title
+      %h1= talk.title
       %p= talk.goal
