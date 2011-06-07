@@ -103,10 +103,12 @@
  */
 $( function( $ )
 {
-  window.slideshowify = function( )
+  $( 'a[rel="slideshow"]' ).click( function( )
   {
-    $( 'body' ).animate( { 'background-color' : '#FFF' } );
-    $( '.talk' ).slideshow( );
+    $( this ).remove( );
     
-  };
+    $( '.talk' ).slideshow( );
+  } );
+  
+  
 } );
