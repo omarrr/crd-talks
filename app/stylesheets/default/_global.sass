@@ -11,8 +11,8 @@ h1, h2, h3, h4, h5, h6
   font-family: $serif
 
 h1
-  font-size: 25px
-  line-height: 30px
+  font-size: 35px
+  line-height: 40px
 h2
   font-size: 22px
   line-height: 26px
@@ -64,4 +64,19 @@ h1, h2, h3, h4, h5, h6
     margin-top: 20px
     list-style: disc
 
+strong
+  font-weight: bold
+
+em
+  font-style: italic
+  
+pre, code
+  font-family: courier, monospace
+  font-size: 14px
+  padding: 4px 7px
+  @include border-radius( 6px )
+  background-color: $dark-blue
+  color: $light-blue
+  @include text-shadow( $medium-blue 0 1px 1px)
+  
 // end

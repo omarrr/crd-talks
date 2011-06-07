@@ -82,8 +82,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* line 13, ../../app/stylesheets/default/_global.sass */
 h1 {
-  font-size: 25px;
-  line-height: 30px;
+  font-size: 35px;
+  line-height: 40px;
 }
 
 /* line 16, ../../app/stylesheets/default/_global.sass */
@@ -171,11 +171,37 @@ h1, h2, h3, h4, h5, h6 {
   list-style: disc;
 }
 
+/* line 67, ../../app/stylesheets/default/_global.sass */
+strong {
+  font-weight: bold;
+}
+
+/* line 70, ../../app/stylesheets/default/_global.sass */
+em {
+  font-style: italic;
+}
+
+/* line 73, ../../app/stylesheets/default/_global.sass */
+pre, code {
+  font-family: courier, monospace;
+  font-size: 14px;
+  padding: 4px 7px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -o-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px;
+  background-color: #0f1c29;
+  color: #ecf3f9;
+  text-shadow: #637080 0 1px 1px;
+}
+
 /* line 5, ../../app/stylesheets/default/_talks.sass */
 body.talks .talk h1, body.talks .talk h2 {
   margin: 20px 0;
 }
 /* line 8, ../../app/stylesheets/default/_talks.sass */
 body.talks .talk li, body.talks .talk p {
-  margin-top: 10px;
+  margin: 10px 0;
 }
