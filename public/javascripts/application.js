@@ -2,19 +2,12 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 ( function( $ )
-{ 
-  $.fn.slug = function( )
+{
+  $.verbs.separates = function( )
   {
-    return $( 'h1, h2', this ).text( ).toLowerCase( ).replace( /[^\w]+/g, '-' ).replace( /^-|-$/g, '' );
-  };
-  
-  $.fn.slides = function( )
-  {
-    var slide = '<div class="slide"></div>';
-    var title = '<div class="title"></div>';
-    var point = '<div class="point"></div>';
-    
-    
+    /*
+      TODO can we break this out a little more? or is this as close as we get to simple?
+    */
     var pointer = $( 'h1' );
 
     while( pointer.length )
@@ -23,120 +16,71 @@
       
       pointer = group.last( ).next( );
       
-      group.wrapAll( slide );
+      group.wrapAll( '<div class="slide"/>' );
     }
     
     $( 'h1, h2' ).addClass( 'title' );
     
     $( 'p' ).addClass( 'point' );
-    
-    console.log( $( this ).html( ) );
-    
-    $( '.slide' ).each( function( )
-    {
-      $( '.point', this ).hide( );
-      
-      $( this ).hide( );
-    } );
-    
-    var routes = [ ];
-    
-    $( '.slide' ).each( function( )
-    {
-      var slide = this;
-      
-      var slug = $( this ).slug( );
-      
-      routes.push( 
-        {
-          slug  : slug,
-          slide : slide,
-          point : null
-        } );
-      
-      $( this ).attr( 'id', slug );
-      
-      $( '.point', this ).each( function( index )
-      {
-        routes.push(
-          {
-            slug  : slug + '/' + index,
-            slide : slide,
-            point : this
-          } );
-      } );
-      
-    } );
-    
+  };
+  
+  $.verbs.hides = function( object )
+  {
+    $( object || this ).hide( );
+  };
+  
+  $.verbs.shows = function( object )
+  {
+    $( object || this ).fadeIn( );
+  };
+  
+  $.verbs.activates = function( object )
+  {
+    $( object || this ).addClass( 'active' );
+  };
+  
+  $.verbs.advances = function( slide )
+  {
     /*
-      TODO refactor this slideshow script. it's a little buggy but
-      it works for now
+      TODO this is not a very DRY verb, refactor!
     */
-    var index = 0;
-    var route;
-    
-    $( window ).keydown( function( event )
+    $( slide, this ).removeClass( 'active' ).fadeOut( function( )
     {
-      if( event.which === 39 )
-      {
-        if( index < routes.length )
-        {
-          route = routes[ index++ ];
-          
-          if( route.point )
-          {
-            $( route.point ).fadeIn( );
-          }
-          else
-          {
-            if( $( '.slide:visible' ).length )
-            {
-              $( '.slide:visible' ).fadeOut( function( )
-              {
-                $( route.slide ).fadeIn( );
-              } );
-            }
-            else
-            {
-              $( route.slide ).fadeIn( );
-            }
-          }
-        }
-      }
-      
-      if( event.which === 37 )
-      {
-        if( index > 0 )
-        {
-          if( route.point )
-          {
-            $( route.point ).fadeOut( );
-            
-            route = routes[ --index ];
-          }
-          else
-          {
-            $( route.slide ).fadeOut( function( )
-            {
-              route = routes[ --index ];
-              
-              $( route.slide ).fadeIn( );
-              
-            } );
-          }
-          
-          
-        }
-      }
+      $( this ).next( ).addClass( 'active' ).fadeIn( );
     } );
-    
-    
-    
+  };
+  
+  $.verbs.rewinds = function( slide )
+  {
+    /*
+      TODO this is not a very DRY verb, refactor!
+    */
+    $( slide, this ).removeClass( 'active' ).fadeOut( function( )
+    {
+      $( this ).prev( ).addClass( 'active' ).fadeIn( );
+    } );
   };
   
 } )( jQuery );
 
 $( function( $ )
 {
-  $( '.talk' ).slides( );
+  var key = {
+    left  : function( event ){ return event.which === 37; },
+    right : function( event ){ return event.which === 39; }
+  };
+  
+  var not = {
+    first : function( event ){ return false === $( '.slide.active' ).is( '.slide:first-child' ); },
+    last  : function( event ){ return false === $( '.slide.active' ).is( '.slide:last-child' ); }
+  };
+  
+  $( '.talk' ).on( 'ready', document ).separates( );
+  $( '.talk' ).on( 'ready', document ).hides( '.slide' );
+  $( '.talk' ).on( 'ready', document ).shows( '.slide:first-child' );
+  $( '.talk' ).on( 'ready', document ).activates( '.slide:first-child' );
+  
+  $( '.talk' ).on( 'keydown', document ).advances( '.slide.active' ).when( key.right ).and( not.last );
+  $( '.talk' ).on( 'keydown', document ).rewinds( '.slide.active' ).when( key.left ).and( not.first );
+
 } );
