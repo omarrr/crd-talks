@@ -244,3 +244,14 @@ body.talks .slide h2 {
 body.talks .slide li, body.talks .slide p {
   margin: 20px 0;
 }
+/* line 26, ../../app/stylesheets/default/_talks.sass */
+body.talks .slide pre, body.talks .slide code {
+  font-size: 24px;
+  padding: 4px 7px;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -o-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -khtml-border-radius: 12px;
+  border-radius: 12px;
+}
