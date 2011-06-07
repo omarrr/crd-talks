@@ -22,6 +22,14 @@ class Talkfile < Pathname
     ctime - other.ctime
   end
   
+  def to_hash
+    {
+      :title => title, 
+      :goal  => goal,
+      :html  => html
+    }
+  end
+  
   protected
   
   def doc
@@ -31,20 +39,14 @@ end
 
 desc "Seed DB with talks"
 task :talks => :environment do
-  
-  # Talk.destroy_all
-  
+
   talkfiles.sort.each do |talk|
     
     if model = Talk.find_by_title( talk.title )
-      puts "#{model.title} updated." if model.update_attributes( talk )
+      puts "#{model.title} updated." if model.update_attributes( talk.to_hash ) and model.save
     else
           
-      Talk.create( 
-        :title => talk.title, 
-        :goal  => talk.goal,
-        :html  => talk.html
-      ).tap do |t|
+      Talk.create( talk.to_hash ).tap do |t|
         puts "#{t.title} created."
       end
       
