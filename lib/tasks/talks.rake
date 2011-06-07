@@ -18,6 +18,10 @@ class Talkfile < Pathname
     @html ||= RDiscount.new( read ).to_html
   end
   
+  def <=>( other )
+    ctime - other.ctime
+  end
+  
   protected
   
   def doc
@@ -30,7 +34,7 @@ task :talks => :environment do
   
   Talk.destroy_all
   
-  Dir[ Rails.root.join( 'talks', '*.md' ) ].map { |t| Talkfile.new( t ) }.each do |talk|
+  talkfiles.sort.each do |talk|
     
     Talk.create( 
       :title => talk.title, 
@@ -42,4 +46,14 @@ task :talks => :environment do
     
   end
   
+end
+
+private
+
+def talkfiles
+  talks.map { |t| Talkfile.new( t ) }
+end
+
+def talks
+  Dir[ Rails.root.join( 'talks', '*.md' ) ]
 end
